@@ -5,11 +5,7 @@ using A = DocumentFormat.OpenXml.Drawing;
 using Xdr = DocumentFormat.OpenXml.Drawing.Spreadsheet;
 using A14 = DocumentFormat.OpenXml.Office2010.Drawing;
 using OpenMcdf;
-using System.Text;
 using ExcelFileTools;
-using System.Xml.Linq;
-using DocumentFormat.OpenXml.VariantTypes;
-using System.IO;
 
 namespace ExcelFileEmbedder
 {
@@ -53,15 +49,6 @@ namespace ExcelFileEmbedder
 
             EmbeddedObjectPart embeddedObjectPart1 = worksheetPart1.AddNewPart<EmbeddedObjectPart>("application/vnd.openxmlformats-officedocument.oleObject", "rId4");
             GenerateEmbeddedObjectPart1Content(embeddedObjectPart1);
-
-            SetPackageProperties(document);
-        }
-        private void SetPackageProperties(OpenXmlPackage document)
-        {
-            document.PackageProperties.Creator = "Ivan Dimitrov";
-            document.PackageProperties.Created = System.Xml.XmlConvert.ToDateTime("2023-03-10T17:03:51Z", System.Xml.XmlDateTimeSerializationMode.RoundtripKind);
-            document.PackageProperties.Modified = System.Xml.XmlConvert.ToDateTime("2023-03-10T17:09:24Z", System.Xml.XmlDateTimeSerializationMode.RoundtripKind);
-            document.PackageProperties.LastModifiedBy = "Ivan Dimitrov";
         }
 
         private void GenerateEmbeddedObjectPart1Content(EmbeddedObjectPart embeddedObjectPart1)
